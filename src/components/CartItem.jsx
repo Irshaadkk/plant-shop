@@ -15,7 +15,7 @@ function CartItem({ item, dispatch }) {
           alt={item.name} 
           className="cart-item-image" 
         />
-        <div>
+        <div className="cart-item-desc">
           <span>{item.name}</span>
           <span>×{quantity}</span>
         </div>
@@ -30,7 +30,7 @@ function CartItem({ item, dispatch }) {
           className="qty-btn">
           -
         </button>
-        <span className="qty-display">{quantity}</span>
+        <span className="qty-display">{quantity > 1 ? quantity - 1 : ''}</span>
         <button
           onClick={() => dispatch(updateQuantity({ id: item.id, quantity: quantity + 1 }))}
           className="qty-btn">
